@@ -12,13 +12,6 @@ import (
 	"time"
 )
 
-// func FindMul(startIdx int, instString string) int {
-// 	// This function, in theory, should parse a string looking
-// 	// for the word "mul". This will then pass off the next step
-// 	// to another function to determine what is next.
-// 	return strings.Index(instString[startIdx:], "mul")
-// }
-
 func ParseNoTry(startIdx int, instString string) (bool, error) {
 	// This will parse do() or don't(). Returns "true" if do(),
 	// "false" if don't(). Will return an error if neither.
