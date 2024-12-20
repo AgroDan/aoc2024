@@ -27,6 +27,16 @@ func NewRunemap(in []string) Runemap {
 	return newRunemap
 }
 
+func (r Runemap) Print() {
+	// Just prints the runemap
+	for y := range r.m {
+		for x := range r.m[y] {
+			fmt.Printf("%c", r.m[y][x])
+		}
+		fmt.Printf("\n")
+	}
+}
+
 func (r Runemap) IsInBounds(c Coord) bool {
 	// Given a coordinate, will return a true if it is inside
 	// the map's boundaries, false if outside. This assumes
@@ -79,6 +89,23 @@ func (r Runemap) Find(items ...rune) (Coord, error) {
 		}
 	}
 	return retval, errors.New("unable to find supplied items")
+}
+
+func (r Runemap) FindAll(item rune) []Coord {
+	// like Find(), this only accepts ONE item and returns a list of
+	// coordinates that this item was found in.
+	var retval []Coord
+	for y := range r.m {
+		for x := range r.m[y] {
+			if r.m[y][x] == item {
+				retval = append(retval, Coord{
+					X: x,
+					Y: y,
+				})
+			}
+		}
+	}
+	return retval
 }
 
 func (r Runemap) DeepCopy() *Runemap {

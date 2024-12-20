@@ -53,6 +53,17 @@ func (c Coord) Peek(dir int) Coord {
 	return check
 }
 
+func (c Coord) AllAvailable() []Coord {
+	// this will give a list of all coordinates in all 4
+	// directions from where we are.
+	retval := make([]Coord, 4)
+	retval[0] = c.Peek(N) // look north
+	retval[1] = c.Peek(E) // look east
+	retval[2] = c.Peek(S) // look south
+	retval[3] = c.Peek(W) // look west
+	return retval
+}
+
 func TurnRight(dir int) int {
 	// given the above declarations of directions, will return the
 	// direction which is 90 degrees right from that particular direction.
