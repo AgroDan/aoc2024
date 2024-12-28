@@ -1,0 +1,7 @@
+# Day 12: Garden Groups
+
+Part one wasn't too bad. Nothing I haven't really done before with these AOC challenges. Find the regions, make a mapping of what I've visited before, run a fill algorithm to get the area of a particular region (in this case I used Breadth-First-Search), then determine the perimeter based on the constraints of the challenge puzzle. Really what took me the longest was actually trying to guess what the second rug-pull challenge would be. I thought it would be something like collecting all the regions -- even those that were in different parts of the map -- and get a total tally. Unfortunately for me I was way off.
+
+Part two was difficult. Mostly in figuring out the logic. I spent most of my time trying to find a way to trace the perimeter of each region and extrapolate from that, but I always found these weird edge-cases that would thwart my attempt. After I started reading some other solutions, my head almost hit the desk. Corners! If you can find a way to determine how many corners there are, you could find out how many _sides_ there are. Once I discovered an algorithm to determine the difference between an inner corner and an outer corner, the second challenge answer came relatively easily afterwards.
+
+I did learn a little bit about Go Generics here, which turns out to be pretty handy when I'm making utilities for future puzzles.

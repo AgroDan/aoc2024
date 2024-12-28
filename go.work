@@ -4,6 +4,7 @@ use (
 	./day1
 	./day10
 	./day11
+	./day12
 	./day2
 	./day3
 	./day4

@@ -1,12 +1,17 @@
 package utils
 
 // This has to do with coordinates.
+// modified slightly to allow for 45 degree directions
 
 const (
 	N = iota
 	E
 	S
 	W
+	NE
+	SE
+	SW
+	NW
 )
 
 type Coord struct {
@@ -28,6 +33,18 @@ func (c *Coord) Move(dir int) {
 		c.Y++
 	case W:
 		c.X--
+	case NE:
+		c.Y--
+		c.X++
+	case SE:
+		c.Y++
+		c.X++
+	case SW:
+		c.Y++
+		c.X--
+	case NW:
+		c.Y--
+		c.X--
 	default:
 		panic("invalid direction")
 	}
@@ -47,6 +64,18 @@ func (c Coord) Peek(dir int) Coord {
 		check.Y++
 	case W:
 		check.X--
+	case NE:
+		check.Y--
+		check.X++
+	case SE:
+		check.Y++
+		check.X++
+	case SW:
+		check.Y++
+		check.X--
+	case NW:
+		check.Y--
+		check.X--
 	default:
 		panic("invalid direction")
 	}
@@ -61,6 +90,20 @@ func (c Coord) AllAvailable() []Coord {
 	retval[1] = c.Peek(E) // look east
 	retval[2] = c.Peek(S) // look south
 	retval[3] = c.Peek(W) // look west
+	return retval
+}
+
+func (c Coord) Neighbors() []Coord {
+	// Similar to allavailable, but this considers diagonal as well
+	retval := make([]Coord, 8)
+	retval[0] = c.Peek(N)  // look north
+	retval[1] = c.Peek(NE) // look northeast
+	retval[2] = c.Peek(E)  // look east
+	retval[3] = c.Peek(SE) // look southeast
+	retval[4] = c.Peek(S)  // look south
+	retval[5] = c.Peek(SW) // look southwest
+	retval[6] = c.Peek(W)  // look west
+	retval[7] = c.Peek(NW) // look northwest
 	return retval
 }
 
@@ -103,12 +146,20 @@ func Opposite(dir int) int {
 	switch dir {
 	case N:
 		return S
+	case NE:
+		return SW
 	case E:
 		return W
+	case SE:
+		return NW
 	case S:
 		return N
+	case SW:
+		return NE
 	case W:
 		return E
+	case NW:
+		return SE
 	default:
 		panic("invalid direction")
 	}
