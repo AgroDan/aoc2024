@@ -5,6 +5,7 @@ use (
 	./day10
 	./day11
 	./day12
+	./day13
 	./day2
 	./day3
 	./day4
