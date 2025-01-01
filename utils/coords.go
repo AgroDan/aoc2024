@@ -164,3 +164,14 @@ func Opposite(dir int) int {
 		panic("invalid direction")
 	}
 }
+
+func IsInSquare(loc, topLeft, botRight Coord) bool {
+	// Given loc, check to see if it is in the rect where the top left coordinate
+	// and the bottom right coordinate exist as the opposite edges of the rectangle
+
+	if loc.X >= topLeft.X && loc.X <= botRight.X &&
+		loc.Y >= topLeft.Y && loc.Y <= botRight.Y {
+		return true
+	}
+	return false
+}
