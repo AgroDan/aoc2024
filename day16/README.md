@@ -1,0 +1,15 @@
+# Day 16: Reindeer Maze
+
+I truly enjoyed this challenge. It took me a while to truly hone in on the best practice needed here for the pathfinding method. Though honestly the worst part wasn't necessarily finding the most efficient method as I discovered, but rather how to find the most efficient method within the constraints of the challenge's scoring mechanic. Finding the shortest distance is one thing, but how do you find the shortest distance using the fewest _turns_ possible? Well therein lies the rub.
+
+I spent a fair bit of time researching the most efficient pathfinding algorithm. Ultimately I decided on A*, which is relatively new to me. I created it and the speed at which it found the most efficient path was sick, as in milliseconds. I really like A*, complex as it may be, because it did the job well. Unfortunately however the process by which A* runs isn't conducive to finding the single most efficient method given the challenge constraints...because to find out the definitive "best" way means you have to check every single path. And unfortunately that means I'll have to use Breadth-First-Search, which is a bit more time-consuming since it's going to try every single path regardless.
+
+This put me down a path (no pun intended) of optimization, since if left unchecked it would happily blow out the available memory with how much it forks, so I had to come up with some pretty esoteric methods to find paths that it can safely ignore. Eventually, since I didn't want to remove my A* algorithm, I ran the A* algorithm first, used the score it found as a baseline for "best possible score," and re-ran it with BFS to determine all possible paths. It wound up finding a score 12 points lower, which was the answer to part 1.
+
+Part two was a slightly more difficult challenge showing that there are actually multiple paths that equal the same score, and because of that I had to count how many individual coordinates in the map are a part of all of these paths. To accomplish that I essentially re-wrote the BFS algorithm I created to also give each visited map piece a score, and if a reindeer visits this coordinate with a score that's _higher_ than the the score that a reindeer had at a previous visit, then discard that reindeer because it's not worth seeing the rest of the path since it's not the most efficient way.
+
+Combine that with an edge case I discovered of the aforementioned previously-visited score checking at an intersection where a reindeer may turn left or right at the intersection compared to a reindeer that went straight, which _even though_ they would hit the exact same score eventually, at that point the score would be skewed and threw off the algorithm. I added a buffer of 1000 points to account for exactly those edge cases and it wound up being exactly what was needed to complete it. Eventually, despite traversing the map 3 times, it completed after 8.2 seconds. **OOF**.
+
+## Lessons learned
+
+I did discover the concept of embedded structs and how to implement a data type appropriately to initialize a Heap object, so that's kinda cool.
