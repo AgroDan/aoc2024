@@ -1,0 +1,3 @@
+# Day 5: Print Queue
+
+This challenge was crazy and confusing. Mostly confusing, but partly crazy too. I'll admit I got a little stumped on the execution of part 2. I did have to rely on the logic written by someone else, specifically `/u/Fabianofski`, wherever you are. Once I grasped that I kinda kicked myself at how elegant this technique was, and in the process learned a little bit about slice functions in the Go standard library. You can pretty easily add and remove items at an index, something I was doing manually. I just found out that the slices library was added to the standard library in August of 2023, so it's still relatively new for me. Oh well.

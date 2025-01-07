@@ -1,0 +1,3 @@
+# Day 9: Disk Fragmenter
+
+I liked this challenge. It was complex, but not overly so. You're given an insane input string to work with and a set of instructions for each rune given in the string. Part one was setting up for part two, and once you get to part two you just had to use what you created to make something useful. In this case, I built upon the data objects I created for this and was able to get part two without much trouble. It takes about `3` seconds to run both parts.

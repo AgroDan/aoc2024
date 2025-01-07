@@ -1,0 +1,3 @@
+# Day 8: Resonant Collinearity
+
+Finally an excuse to use my Runemap utility! This challenge wasn't too bad, just mostly a lot of work. Once I got the map working properly with the antennae placement, I could extrapolate pretty easily the direction of the resonant frequencies that part 2 called for. I just reflected out for each one and didn't stop until I hit the boundaries of the map, something I could fairly easily determine with the functions I created for the Runemap utility!
