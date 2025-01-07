@@ -1,0 +1,9 @@
+# Day 18: RAM Run
+
+I am proud to say that I solved this puzzle in about an hour, both parts. How did this solve so quickly? A*, baby!
+
+Having learned about the awesomeness that is the [A* Search Algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm), I decided to first attempt to implement this here. I feel that many first-timers to the Advent-Of-Code gauntlet may be quick to jump on the DFS or BFS bandwagon (something I am certainly guilty of in past attempts), so that may be the biggest downfall here. BFS and DFS would struggle on part two simply due to the complexity of the map. After `1024` bytes fall the map gets relatively complex with `3,876` possible "valid" paths to check. Doing this once would be relatively trivial, but for part two which involved iterating the pathfinding algorithm over and over again until the path is completely cut off, an extremely efficient pathfinding algorithm was pretty much a necessity.
+
+A* to the rescue! Because it uses a weighted heuristics approach to pathfinding it was able to determine the best path _extremely_ quickly. Far quicker than BFS or DFS could ever hope to accomplish. For that sort of thing, generative fill is best left to those algorithms, but for finding the quickest path through a maze (as long as the maze constraints don't rely on turn-scoring like previous challenges), A* is clearly the winner here. Once I tuned it to give me the appropriate answer for part one, I simply incremented by one byte falling and re-ran the algorithm until no paths could be found, then dumped the result.
+
+This challenge completed in 2.1 seconds, both parts, including printing the map and paths taken. I got some dirt on my shoulder, could you brush it off for me?
