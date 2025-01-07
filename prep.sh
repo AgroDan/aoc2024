@@ -57,28 +57,28 @@ import (
     "fmt"
     "flag"
     "time"
+    "utils"
 )
 
 func main() {
     t := time.Now()
     filePtr := flag.String("f", "input", "Input file if not 'input'")
+    // any additional flags add here
 
 	flag.Parse()
-	readFile, err := os.Open(*filePtr)
 
-	if err != nil {
-		fmt.Println("Fatal:", err)
-	}
-	defer readFile.Close()
+    // Choose based on the challenge...
+    // individual lines
+    // lines, err := utils.GetTextBlob(*filePtr)
+    // if err != nil {
+    //     fmt.Println("Fatal:", err)
+    // }
 
-    fileScanner := bufio.NewScanner(readFile)
-    fileScanner.Split(bufio.ScanLines)
-
-    var lines []string
-
-    for fileScanner.Scan() {
-        lines = append(lines, fileScanner.Text())
-    }
+    // giant text blob:
+    // challengeText, err := utils.GetTextBlob(*filePtr)
+    // if err != nil {
+    //     fmt.Println("Fatal:", err)
+    // }
 
     // Insert code here
 

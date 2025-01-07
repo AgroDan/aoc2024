@@ -20,7 +20,7 @@ func NewRunemap(in []string) Runemap {
 	for _, r := range in {
 		var rowSlice []rune
 		for _, c := range r {
-			rowSlice = append(rowSlice, c)
+			rowSlice = append(rowSlice, rune(c))
 		}
 		newRunemap.m = append(newRunemap.m, rowSlice)
 	}
@@ -58,7 +58,7 @@ func (r Runemap) Get(c Coord) (rune, error) {
 	if r.IsInBounds(c) {
 		return r.m[c.Y][c.X], nil
 	}
-	return '?', fmt.Errorf("Out of bounds: X: %d, Y: %d", c.X, c.Y)
+	return '?', fmt.Errorf("out of bounds: X: %d, Y: %d", c.X, c.Y)
 }
 
 func (r *Runemap) Set(c Coord, setRune rune) error {
@@ -68,7 +68,7 @@ func (r *Runemap) Set(c Coord, setRune rune) error {
 		r.m[c.Y][c.X] = setRune
 		return nil
 	}
-	return fmt.Errorf("Supplied coord is invalid, X: %d, Y: %d", c.X, c.Y)
+	return fmt.Errorf("supplied coord is invalid, X: %d, Y: %d", c.X, c.Y)
 }
 
 func (r Runemap) Find(items ...rune) (Coord, error) {
@@ -116,7 +116,7 @@ func (r Runemap) DeepCopy() *Runemap {
 	for _, r := range r.m {
 		var rowSlice []rune
 		for _, c := range r {
-			rowSlice = append(rowSlice, c)
+			rowSlice = append(rowSlice, rune(c))
 		}
 		newRunemap.m = append(newRunemap.m, rowSlice)
 	}
