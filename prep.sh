@@ -69,7 +69,7 @@ func main() {
 
     // Choose based on the challenge...
     // individual lines
-    // lines, err := utils.GetTextBlob(*filePtr)
+    // lines, err := utils.GetFileLines(*filePtr)
     // if err != nil {
     //     fmt.Println("Fatal:", err)
     // }
