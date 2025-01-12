@@ -44,8 +44,6 @@ echo > $WORKDIR/$GOFILE "\
 package main
 
 import (
-    \"os\"
-    \"bufio\"
     \"fmt\"
     \"flag\"
     \"time\"

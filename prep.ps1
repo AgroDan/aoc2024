@@ -59,8 +59,6 @@ $GoStub = @"
 package main
 
 import (
-    "os"
-    "bufio"
     "fmt"
     "flag"
     "time"

@@ -52,8 +52,6 @@ cat > $WORKDIR/$GOFILE <<EOF
 package main
 
 import (
-    "os"
-    "bufio"
     "fmt"
     "flag"
     "time"
