@@ -8,6 +8,10 @@ Then came part two. In typical Advent of Code rug-pull fashion, it turns out tha
 
 It's a wrapper function that surrounds another function and records its answer in a cache. If that function is called again with the same cache key, the wrapper function simply returns the stored result rather than re-compute the answer from scratch. For my methods, I chose to find every single possible directions a robot could take on a direction pad (such as the directions from `^` to `<`, from `A` to `>`, etc) and recurse itself all the way down to level 25, where it would compute the length of every possible choice direction you could go. After it computed a few, it was able to refer to the values it computed using the cache and skip through entire portions of the process, ultimately adding up the numbers that it needed, the complexity score. Then of course just multiplying it with the number of the door code, and voila!
 
+<<<<<<< HEAD
 It goes without saying that part two actually went _a lot_ faster than part one, even with the multiple layers. In total my code runs for a little over 5 seconds, and a large majority of the computational time was just running through part 1 the brute-force way. I could go back and change it, but at this point I'm just happy to be done with this one. Oh my poor brain.
 
 And a big credit goes to Hyper Neutrino for the explanation I needed.
+=======
+It goes without saying that part two actually went _a lot_ faster than part one, even with the multiple layers. In total my code runs for a little over 5 seconds, and a large majority of the computational time was just running through part 1 the brute-force way. I could go back and change it, but at this point I'm just happy to be done with this one. Oh my poor brain.
+>>>>>>> f71345dca6bc26f2fead18a9ad4e1f3264312b70
