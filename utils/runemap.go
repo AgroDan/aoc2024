@@ -132,3 +132,14 @@ func (r Runemap) Height() int {
 	// returns the height of the rectangular map
 	return len(r.m)
 }
+
+func (r Runemap) GetRaw() [][]rune {
+	// This will simply return the raw runemap
+	retval := make([][]rune, 0)
+	for _, row := range r.m {
+		rows := make([]rune, len(row))
+		copy(rows, row)
+		retval = append(retval, rows)
+	}
+	return retval
+}

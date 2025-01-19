@@ -93,6 +93,18 @@ func (c Coord) AllAvailable() []Coord {
 	return retval
 }
 
+func (c Coord) TrueAllAvailable() []Coord {
+	// this is probably the exact same thing as the above,
+	// but it gives me a little more peace of mind to have
+	// the indexes referring to the direction
+	retval := make([]Coord, 4)
+	retval[N] = c.Peek(N) // look north
+	retval[E] = c.Peek(E) // look east
+	retval[S] = c.Peek(S) // look south
+	retval[W] = c.Peek(W) // look west
+	return retval
+}
+
 func (c Coord) Neighbors() []Coord {
 	// Similar to allavailable, but this considers diagonal as well
 	retval := make([]Coord, 8)
@@ -105,6 +117,21 @@ func (c Coord) Neighbors() []Coord {
 	retval[6] = c.Peek(W)  // look west
 	retval[7] = c.Peek(NW) // look northwest
 	return retval
+}
+
+func (c Coord) Parallel(dir int) []Coord {
+	// This will obtain the two directions parallel to each other.
+	// for instance, if going north, this will return the two coordinates
+	// north and south, if going east, will return the two coordinates
+	// going east and west.
+	switch dir {
+	case N, S:
+		return []Coord{c.Peek(N), c.Peek(S)}
+	case E, W:
+		return []Coord{c.Peek(E), c.Peek(W)}
+	default:
+		return nil
+	}
 }
 
 func TurnRight(dir int) int {
