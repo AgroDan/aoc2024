@@ -20,3 +20,14 @@ func Heap(arr []int, n int, result *[][]int) {
 		}
 	}
 }
+
+func CartesianProduct[T any](slice1, slice2 []T) [][]T {
+	var result [][]T
+	for _, elem1 := range slice1 {
+		for _, elem2 := range slice2 {
+			pair := []T{elem1, elem2}
+			result = append(result, pair)
+		}
+	}
+	return result
+}
