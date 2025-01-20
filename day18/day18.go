@@ -13,8 +13,8 @@ import (
 func main() {
 	t := time.Now()
 	filePtr := flag.String("f", "input", "Input file if not 'input'")
-	mapWidth := flag.Int("w", 6, "Width of the map")
-	bytesFallen := flag.Int("b", 12, "Number of bytes to fall")
+	mapWidth := flag.Int("w", 70, "Width of the map")
+	bytesFallen := flag.Int("b", 1024, "Number of bytes to fall")
 
 	flag.Parse()
 	readFile, err := os.Open(*filePtr)
